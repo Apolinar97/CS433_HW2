@@ -144,28 +144,22 @@ int main() {
   pthread_join(unit8,&return9);
   pthread_join(unit9,&return10);
   
-  /*
+  
   if( (long) return0 == 1 && (long) return1 == 1 && (long) return2 == 1 && (long) return3 == 1 &&
       (long) return4 == 1 && (long) return5 == 1 && (long) return6 == 1 && (long) return7 == 1 &&
       (long) return8 == 1 && (long) return9 == 1 && (long) return10 == 1)  {
 
-    printf("Valid!");
+    printf("Valid Sudoku board! \n");
   }
   else
     {
-      printf("Invalid Sudoku board");
+      printf("Invalid Sudoku board\n");
     }
-  */
-  //check if all returns have a value of 1.
-  if((long) return0==1 && (long) return1==1 && (long) return2==1 && (long)return3==1) {
-    printf("Valid!\n");
-  }
-  else
-    printf("invalid\n");
+ 
   
   return 0;
 }
-
+//Written by Apolinar Camacho
 void* rowValid(void* workingParam) { 
   parameters* data = (parameters*) workingParam;
   int startRow = data->_row;
@@ -199,7 +193,7 @@ void* rowValid(void* workingParam) {
   return (void*)  1;
   
 }//end of rowValid(...); 
-
+//Written by Apolinar Camacho
 void* colValid(void* workingParam) {
   parameters* data = (parameters*) workingParam;
   int startRow = data->_row;
@@ -228,6 +222,7 @@ void* colValid(void* workingParam) {
   
  
 }//end of colValid.
+//Written by: Alan Mendez.
 
 void* valid3x3(void* workingParam) {
   parameters* data = (parameters*) workingParam;
@@ -241,7 +236,7 @@ void* valid3x3(void* workingParam) {
       for(int z = startCol; z<startCol+3; z++)
 	{	  
 	  tempNum = Sudoku[i][z];
-	  printf("tempNum: %d\n",tempNum);
+	  // printf("tempNum: %d\n",tempNum);
 	  if(checker[tempNum] != 0)
 	    {
 	      printf("Error!....\n");
